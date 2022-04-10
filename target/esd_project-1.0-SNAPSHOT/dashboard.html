@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="assests/css/dashboard.css">
+    <link rel="stylesheet" href="assests/css/courseform.css">
+    <title>Dashboard</title>
+</head>
+<body onload="hideElement()">
+<!--Navbar (sit on top)-->
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+        <a href="index.html" class="w3-bar-item w3-button"><b>IIIT</b> Bangalore</a>
+        <!-- Float links to the right. Hide them on small screens -->
+        <div class="w3-right w3-hide-small">
+            <a href="login.html" class="w3-bar-item w3-button">LogOut</a>
+        </div>
+    </div>
+</div>
+
+<div class="sidenav">
+    <a href="#Course" class="sidenavbtn" type="button" id="fetch_btn" class="btn btn-fetch" onclick=fetch_courses()>Courses</a>
+    <a href="#Delete" class="sidenavbtn" type="button" id="delete_btn" class="btn btn-primary" onclick=delete_course()>delete</a>
+    <a href="#services" class="sidenavbtn" type="button" id="add_course" class="btn btn-danger"  onclick=add_course()>Add</a>
+    <a href="#services" class="sidenavbtn" type="button" id="update_btn" class="btn btn-danger"  onclick=update_course()>Update</a>
+</div>
+
+<div class="row" id="show_course">
+    <div class="container">
+        <h3 class="text-center">Course List</h3>
+        <hr>
+        <br>
+
+        <table class="table table-secondary table-bordered" id="tableSelect">
+            <thead>
+            <tr>
+                <th scope="col" class="table-dark course_id">CourseID</th>
+                <th scope="col" class="table-dark name">Name</th>
+                <th scope="col" class="table-dark course_code">CourseCode</th>
+                <th scope="col" class="table-dark description">Specialization</th>
+                <th scope="col" class="table-dark capacity">Capacity</th>
+                <th scope="col" class="table-dark credit">Credit</th>
+                <th scope="col" class="table-dark pre_req">Prerequisite</th>
+            </tr>
+            </thead>
+            <tbody id="tableBody"  ></tbody>
+        </table>
+        <br>
+        <br>
+
+    </div>
+</div>
+<div class="bg" id="addCourse">
+    <div class="wrapper">
+        <div class="text-center mt-4 name"> Add Course </div>
+        <form name="myForm" class="p-3 mt-3" id="login-Validation">
+            <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span> <input type="text" pattern="[A-Za-z]" name="userName" id="crs_name" placeholder="Name" required> </div>
+            <div class="form-field d-flex align-items-center"> <span class="fas fa-code"></span> <input type="text" pattern="[A-Za-z]" name="Code" id="code" placeholder="Code" required> </div>
+            <div class="form-field d-flex align-items-center"> <span class="fas fa-spc"></span> <input type="text" pattern="[A-Za-z]" name="Specialization" id="spc" placeholder="Specialization" required> </div>
+            <div class="form-field d-flex align-items-center"> <span class="fas fa-cpc"></span> <input type="number" max="300" min="6" name="Capacity" id="cpc" placeholder="Capacity" required> </div>
+            <div class="form-field d-flex align-items-center"> <span class="fas fa-credit"></span> <input type="number" max="10" min="4" name="Credit" id="credit" placeholder="Credit" required> </div>
+            <div class="form-field d-flex align-items-center"> <span class="fas fa-credit"></span> <input type="text" name="Prerequisite" id="prerequisite" placeholder="Prerequisite" required> </div>
+            <button class="btn mt-3" type="submit" onclick="add_course_form()">Submit</button>
+            <div id="error" style="color: brown"></div>
+            <div class="alert alert-warning" role="alert" id="course-alert" style="display: none; margin-top: 20px; color: green">
+                Course Details Uploaded Successfully
+            </div><div class="alert alert-warning" role="alert" id="course-alert-fail" style="display: none; margin-top: 20px; color: brown">
+            Uploading Unsuccessfully
+        </div>
+        </form>
+    </div>
+</div>
+
+<div class="bg" id="delete">
+    <div class="wrapper">
+        <div class="text-center mt-4 name"> Enter Course Id </div>
+        <form name="myForm" class="p-3 mt-3" id="delete-Validation">
+            <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span> <input type="number" name="userName" id="crsID" placeholder="CourseID" required> </div>
+            <button class="btn mt-3" type="submit" onclick="delete_crs_form()">Submit</button>
+            <div id="deleteError" style="color: brown"></div>
+            <div class="alert alert-warning" role="alert" id="delete-alert" style="display: none; margin-top: 20px; color: green">
+                Course Deleted Successfully
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="bg" id="update">
+    <div class="wrapper">
+        <div class="text-center mt-4 name"> Enter Course Id To Update</div>
+        <form name="myForm" class="p-3 mt-3" id="update-Validation">
+            <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span> <input type="number" name="userName" id="field" placeholder="field" required> </div>
+            <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span> <input type="number" name="value" id="value" placeholder="Value" required> </div>
+            <button class="btn mt-3" type="submit" onclick="update_crs_form()">Submit</button>
+            <div id="updateAlert" style="color: green"></div>
+        </form>
+    </div>
+</div>
+</body>
+<script src="assests/js/dashboard.js"></script>
+<script src="assets/js/courseList.js"></script>
+</html>

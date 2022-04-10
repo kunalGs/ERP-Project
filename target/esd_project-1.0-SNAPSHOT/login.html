@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="assests/css/login.css">
+<style>
+    body {
+        background-image: url('assests/src/iiitb_blured.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+        <a href="index.html" class="w3-bar-item w3-button"><b>IIIT</b> Bangalore</a>
+        <!-- Float links to the right. Hide them on small screens -->
+        <div class="w3-right w3-hide-small">
+            <a href="login.html" class="w3-bar-item w3-button">Login</a>
+            <a href="index.html/#about" class="w3-bar-item w3-button">About</a>
+        </div>
+    </div>
+</div>
+<div class="bg">
+<div class="wrapper">
+    <div class="logo"> <img src="assests/src/logo.jpeg" alt=""> </div>
+    <div class="text-center mt-4 name"> Admin Login </div>
+    <form class="p-3 mt-3" id="login-Validation">
+        <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span> <input type="text" name="userName" id="userName" placeholder="Username"> </div>
+        <div class="form-field d-flex align-items-center"> <span class="fas fa-key"></span> <input type="password" name="password" id="pwd" placeholder="Password"> </div>
+        <button class="btn mt-3" type="submit">Login</button>
+        <div class="alert alert-warning" role="alert" id="login-alert" style="display: none; margin-top: 20px; color: brown">
+            Invalid Username or Password
+        </div>
+    </form>
+    <div class="text-center fs-6"> <a href="#">Forget password?</a> or <a href="#">Sign up</a> </div>
+</div>
+</div>
+</body>
+<script src="assests/js/loginValidation.js"></script>
+</html>
